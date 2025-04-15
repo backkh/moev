@@ -2,69 +2,105 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>샴푸 설문조사</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap');
+
     body {
-      font-family: sans-serif;
-      text-align: center;
-      background: #fdfcfb;
+      font-family: 'Gothic A1', sans-serif;
+      margin: 0;
+      background-color: #f3f3f3;
       padding: 20px;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    h2 {
-      margin-bottom: 30px;
+    h1 {
+      font-size: 3.6rem;
+      color: #991b1b;
+      margin-bottom: 50px;
+      line-height: 1.4;
     }
-    .container {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      max-width: 600px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      justify-items: center;
+      width: 100%;
+      max-width: 1400px;
       margin: 0 auto;
+      flex-grow: 1;
+      align-content: center;
     }
-    .option {
-      background: #fff;
-      border: 2px dashed #ccc;
-      padding: 40px 10px;
-      border-radius: 20px;
-      font-size: 1.2rem;
+    .item {
+      background-color: #991b1b;
+      color: white;
+      padding: 40px 30px 20px 30px;
+      border-radius: 16px;
+      min-height: 200px;
+      width: 100%;
+      max-width: 360px;
       position: relative;
-      min-height: 120px;
+      font-size: 1.6rem;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      border-top: 3px solid #fff;
+    }
+    .item span {
+      font-weight: bold;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    .item small {
+      display: block;
+      font-size: 1.2rem;
+      opacity: 0.9;
     }
     .sticker {
       position: absolute;
-      width: 30px;
-      height: 30px;
-      top: 10px;
-      left: 10px;
+      width: 36px;
+      height: 36px;
+      pointer-events: none;
+    }
+    .footer {
+      margin-top: 40px;
+    }
+    .footer img {
+      height: 60px;
     }
   </style>
 </head>
 <body>
-
-  <h2>샴푸 구매 결정 시 가장 중요한 요소는 무엇인가요?<br>스티커를 붙여주세요!</h2>
-
-  <div class="container">
-    <div class="option" onclick="addSticker(this)">향</div>
-    <div class="option" onclick="addSticker(this)">거품</div>
-    <div class="option" onclick="addSticker(this)">가격</div>
-    <div class="option" onclick="addSticker(this)">성분</div>
-    <div class="option" onclick="addSticker(this)">기능성</div>
-    <div class="option" onclick="addSticker(this)">브랜드</div>
+  <h1>샴푸 구매 결정 시 <strong>가장 중요한 요소</strong>는 무엇인가요?<br>스티커를 붙여주세요!</h1>
+  <div class="grid">
+    <div class="item" onclick="addSticker(this)"><span>향</span></div>
+    <div class="item" onclick="addSticker(this)"><span>거품</span></div>
+    <div class="item" onclick="addSticker(this)"><span>가격</span></div>
+    <div class="item" onclick="addSticker(this)"><span>성분</span><small>ex) 비건, 알러지프리</small></div>
+    <div class="item" onclick="addSticker(this)"><span>기능성</span><small>ex) 탈모, 손상모 등</small></div>
+    <div class="item" onclick="addSticker(this)"><span>브랜드</span><small>ex) 인지도, 디자인 등</small></div>
+  </div>
+  <div class="footer">
+    <img src="moev_logo_red.png" alt="moev logo">
   </div>
 
   <script>
     function addSticker(el) {
-      const img = document.createElement("img");
-      img.src = "https://cdn-icons-png.flaticon.com/512/148/148836.png"; // 하트 스티커 예시
-      img.className = "sticker";
-      const x = Math.random() * (el.clientWidth - 40);
-      const y = Math.random() * (el.clientHeight - 40);
-      img.style.left = x + "px";
-      img.style.top = y + "px";
+      const img = document.createElement('img');
+      img.src = 'https://cdn-icons-png.flaticon.com/512/148/148836.png';
+      img.className = 'sticker';
+      const x = Math.random() * (el.clientWidth - 36);
+      const y = Math.random() * (el.clientHeight - 36);
+      img.style.left = x + 'px';
+      img.style.top = y + 'px';
       el.appendChild(img);
     }
   </script>
-
 </body>
 </html>
+
