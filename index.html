@@ -3,126 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <title>moev 스탠바이미 설문</title>
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'Noto Sans KR', sans-serif;
-      background: linear-gradient(to bottom, #ffffff, #fce4ec);
-      color: #b71c1c;
-      text-align: center;
+      font-family: 'Pretendard', sans-serif;
+      background-color: #ffffff;
     }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px 20px;
-    }
-
-    .title {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-
-    .section {
-      width: 48%;
-    }
-
-    .section h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
-
-    .section h2 span {
-      display: block;
-      font-size: 44px;
-      font-weight: bold;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .item {
-      background: #eee;
-      border: 2px solid #e57373;
-      height: 100px;
-      border-radius: 12px;
+    .background-wrapper {
       position: relative;
-      padding-top: 24px;
-      font-weight: bold;
-      font-size: 16px;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
     }
-
-    .item span {
-      font-size: 12px;
-      display: block;
-      margin-top: 4px;
-      color: #444;
-    }
-
-    .apple {
-      width: 30px;
+    .background-wrapper img.background {
       position: absolute;
-      top: 8px;
-      right: 8px;
-      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
-
-    .item.clicked .apple {
-      display: block;
+    .touch-box {
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
     }
-
-    .logo {
-      text-align: right;
-      margin-top: -20px;
-      margin-bottom: 20px;
-      font-family: serif;
-      font-size: 22px;
+    .apple {
+      width: 28px;
+      position: absolute;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="title">
-      <div class="section">
-        <h2>01 요즘 구매 고려 중인<br><span>헤어케어 제품은?</span></h2>
-        <div class="grid">
-          <div class="item" onclick="toggleApple(this)">향 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">거품 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">가격 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">기능성 <span>ex) 탈모, 손상모 등</span><img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">성분 <span>ex) 비건, 알러지프리</span><img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">브랜드 <span>ex) 인지도, 디자인 등</span><img class="apple" src="apple.png"></div>
-        </div>
-      </div>
+  <div class="background-wrapper">
+    <img class="background" src="moev_final_background.png" alt="설문 배경">
 
-      <div class="section">
-        <div class="logo">moev</div>
-        <h2>02 샴푸 구매 결정시 고려하는<br><span>가장 중요한 요소는?</span></h2>
-        <div class="grid">
-          <div class="item" onclick="toggleApple(this)">지성 두피 샴푸 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">비듬 샴푸 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">건성 두피 샴푸 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">퍼퓸 샴푸 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">드라이 샴푸 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">모발강화 단백질 샴푸 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">헤어 퍼퓸 미스트 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">두피 영양 앰플 <img class="apple" src="apple.png"></div>
-          <div class="item" onclick="toggleApple(this)">헤어 팩 <img class="apple" src="apple.png"></div>
-        </div>
-      </div>
-    </div>
+    <!-- 회색박스 터치 영역 (좌표 직접 지정) -->
+    <div class="touch-box" style="top: 255px; left: 110px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 255px; left: 315px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 395px; left: 110px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 395px; left: 315px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 535px; left: 110px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 535px; left: 315px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
+
+    <div class="touch-box" style="top: 255px; left: 730px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 255px; left: 930px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 255px; left: 1130px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+
+    <div class="touch-box" style="top: 395px; left: 730px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 395px; left: 930px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 395px; left: 1130px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+
+    <div class="touch-box" style="top: 535px; left: 730px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 535px; left: 930px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 535px; left: 1130px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
   </div>
 
   <script>
-    function toggleApple(el) {
-      el.classList.toggle('clicked');
+    function addApple(el) {
+      const img = document.createElement('img');
+      img.src = 'apple.png';
+      img.className = 'apple';
+      img.style.top = `${Math.random() * 80 + 10}px`;
+      img.style.left = `${Math.random() * 80 + 10}px`;
+      el.appendChild(img);
     }
   </script>
 </body>
 </html>
+
 
