@@ -2,103 +2,125 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>샴푸 설문조사</title>
+  <title>moev 스탠바이미 설문</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap');
-
     body {
-      font-family: 'Gothic A1', sans-serif;
       margin: 0;
-      background-color: #f3f3f3;
-      padding: 20px;
+      font-family: 'Noto Sans KR', sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #fce4ec);
+      color: #b71c1c;
       text-align: center;
-      height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .title {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
     }
-    h1 {
-      font-size: 3.6rem;
-      color: #991b1b;
-      margin-bottom: 50px;
-      line-height: 1.4;
+
+    .section {
+      width: 48%;
     }
+
+    .section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .section h2 span {
+      display: block;
+      font-size: 44px;
+      font-weight: bold;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      justify-items: center;
-      width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      flex-grow: 1;
-      align-content: center;
+      gap: 16px;
     }
+
     .item {
-      background-color: #991b1b;
-      color: white;
-      padding: 40px 30px 20px 30px;
-      border-radius: 16px;
-      min-height: 200px;
-      width: 100%;
-      max-width: 360px;
+      background: #eee;
+      border: 2px solid #e57373;
+      height: 100px;
+      border-radius: 12px;
       position: relative;
-      font-size: 1.6rem;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      border-top: 3px solid #fff;
-    }
-    .item span {
+      padding-top: 24px;
       font-weight: bold;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
+      font-size: 16px;
     }
-    .item small {
+
+    .item span {
+      font-size: 12px;
       display: block;
-      font-size: 1.2rem;
-      opacity: 0.9;
+      margin-top: 4px;
+      color: #444;
     }
-    .sticker {
+
+    .apple {
+      width: 30px;
       position: absolute;
-      width: 36px;
-      height: 36px;
-      pointer-events: none;
+      top: 8px;
+      right: 8px;
+      display: none;
     }
-    .footer {
-      margin-top: 40px;
+
+    .item.clicked .apple {
+      display: block;
     }
-    .footer img {
-      height: 60px;
+
+    .logo {
+      text-align: right;
+      margin-top: -20px;
+      margin-bottom: 20px;
+      font-family: serif;
+      font-size: 22px;
     }
   </style>
 </head>
 <body>
-  <h1>샴푸 구매 결정 시 <strong>가장 중요한 요소</strong>는 무엇인가요?<br>스티커를 붙여주세요!</h1>
-  <div class="grid">
-    <div class="item" onclick="addSticker(this)"><span>향</span></div>
-    <div class="item" onclick="addSticker(this)"><span>거품</span></div>
-    <div class="item" onclick="addSticker(this)"><span>가격</span></div>
-    <div class="item" onclick="addSticker(this)"><span>성분</span><small>ex) 비건, 알러지프리</small></div>
-    <div class="item" onclick="addSticker(this)"><span>기능성</span><small>ex) 탈모, 손상모 등</small></div>
-    <div class="item" onclick="addSticker(this)"><span>브랜드</span><small>ex) 인지도, 디자인 등</small></div>
-  </div>
-  <div class="footer">
-    <img src="moev_logo_red.png" alt="moev logo">
+  <div class="container">
+    <div class="title">
+      <div class="section">
+        <h2>01 요즘 구매 고려 중인<br><span>헤어케어 제품은?</span></h2>
+        <div class="grid">
+          <div class="item" onclick="toggleApple(this)">향 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">거품 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">가격 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">기능성 <span>ex) 탈모, 손상모 등</span><img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">성분 <span>ex) 비건, 알러지프리</span><img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">브랜드 <span>ex) 인지도, 디자인 등</span><img class="apple" src="apple.png"></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="logo">moev</div>
+        <h2>02 샴푸 구매 결정시 고려하는<br><span>가장 중요한 요소는?</span></h2>
+        <div class="grid">
+          <div class="item" onclick="toggleApple(this)">지성 두피 샴푸 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">비듬 샴푸 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">건성 두피 샴푸 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">퍼퓸 샴푸 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">드라이 샴푸 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">모발강화 단백질 샴푸 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">헤어 퍼퓸 미스트 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">두피 영양 앰플 <img class="apple" src="apple.png"></div>
+          <div class="item" onclick="toggleApple(this)">헤어 팩 <img class="apple" src="apple.png"></div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script>
-    function addSticker(el) {
-      const img = document.createElement('img');
-      img.src = 'https://cdn-icons-png.flaticon.com/512/148/148836.png';
-      img.className = 'sticker';
-      const x = Math.random() * (el.clientWidth - 36);
-      const y = Math.random() * (el.clientHeight - 36);
-      img.style.left = x + 'px';
-      img.style.top = y + 'px';
-      el.appendChild(img);
+    function toggleApple(el) {
+      el.classList.toggle('clicked');
     }
   </script>
 </body>
