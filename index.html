@@ -15,8 +15,9 @@
     }
     .background-wrapper {
       position: relative;
-      width: 100vw;
-      height: 100vh;
+      width: 1920px;
+      height: 1080px;
+      margin: 0 auto;
       overflow: hidden;
     }
     .background-wrapper img.background {
@@ -35,7 +36,7 @@
       justify-content: center;
     }
     .apple {
-      width: 40px;
+      width: 50px;
       position: absolute;
       z-index: 2;
     }
@@ -45,25 +46,25 @@
   <div class="background-wrapper">
     <img class="background" src="moev_final_background.png" alt="설문 배경">
 
-    <!-- 회색박스 터치 영역 (좌표 직접 지정) -->
-    <div class="touch-box" style="top: 255px; left: 110px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 255px; left: 315px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 395px; left: 110px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 395px; left: 315px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 535px; left: 110px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 535px; left: 315px; width: 170px; height: 120px;" onclick="addApple(this)"></div>
+    <!-- 회색박스 터치 영역 (좌표 조정 완료) -->
+    <div class="touch-box" style="top: 310px; left: 180px; width: 240px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 310px; left: 455px; width: 240px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 495px; left: 180px; width: 240px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 495px; left: 455px; width: 240px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 680px; left: 180px; width: 240px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 680px; left: 455px; width: 240px; height: 160px;" onclick="addApple(this)"></div>
 
-    <div class="touch-box" style="top: 255px; left: 730px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 255px; left: 930px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 255px; left: 1130px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 310px; left: 1025px; width: 220px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 310px; left: 1290px; width: 220px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 310px; left: 1555px; width: 220px; height: 160px;" onclick="addApple(this)"></div>
 
-    <div class="touch-box" style="top: 395px; left: 730px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 395px; left: 930px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 395px; left: 1130px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 495px; left: 1025px; width: 220px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 495px; left: 1290px; width: 220px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 495px; left: 1555px; width: 220px; height: 160px;" onclick="addApple(this)"></div>
 
-    <div class="touch-box" style="top: 535px; left: 730px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 535px; left: 930px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 535px; left: 1130px; width: 160px; height: 120px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 680px; left: 1025px; width: 220px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 680px; left: 1290px; width: 220px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 680px; left: 1555px; width: 220px; height: 160px;" onclick="addApple(this)"></div>
   </div>
 
   <script>
@@ -71,12 +72,11 @@
       const img = document.createElement('img');
       img.src = 'apple.png';
       img.className = 'apple';
-      img.style.top = `${Math.random() * 80 + 5}px`;
-      img.style.left = `${Math.random() * 100 + 5}px`;
+      img.style.top = `${Math.random() * 100 + 5}px`;
+      img.style.left = `${Math.random() * 120 + 5}px`;
       el.appendChild(img);
     }
   </script>
 </body>
 </html>
-
 
