@@ -30,9 +30,12 @@
       position: absolute;
       z-index: 1;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .apple {
-      width: 28px;
+      width: 40px;
       position: absolute;
       z-index: 2;
     }
@@ -68,8 +71,8 @@
       const img = document.createElement('img');
       img.src = 'apple.png';
       img.className = 'apple';
-      img.style.top = `${Math.random() * 80 + 10}px`;
-      img.style.left = `${Math.random() * 80 + 10}px`;
+      img.style.top = `${Math.random() * 80 + 5}px`;
+      img.style.left = `${Math.random() * 100 + 5}px`;
       el.appendChild(img);
     }
   </script>
