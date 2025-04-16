@@ -15,16 +15,15 @@
     }
     .background-wrapper {
       position: relative;
-      width: 1920px;
-      height: 1080px;
-      margin: 0 auto;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
     }
     .background-wrapper img.background {
       position: absolute;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       z-index: 0;
     }
     .touch-box {
@@ -38,6 +37,7 @@
       width: 70px;
       position: absolute;
       z-index: 2;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -45,25 +45,25 @@
   <div class="background-wrapper">
     <img class="background" src="moev_final_background.png" alt="설문 배경">
 
-    <!-- 수정된 회색박스 정확한 좌표 -->
-    <div class="touch-box" style="top: 360px; left: 155px; width: 235px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 360px; left: 435px; width: 235px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 545px; left: 155px; width: 235px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 545px; left: 435px; width: 235px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 730px; left: 155px; width: 235px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 730px; left: 435px; width: 235px; height: 160px;" onclick="addApple(this)"></div>
+    <!-- 상대 좌표 기준: 스탠바이미 27인치용 -->
+    <div class="touch-box" style="top: 31.3%; left: 7.5%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 31.3%; left: 22.5%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 48.1%; left: 7.5%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 48.1%; left: 22.5%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 64.8%; left: 7.5%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 64.8%; left: 22.5%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div>
 
-    <div class="touch-box" style="top: 360px; left: 1025px; width: 200px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 360px; left: 1270px; width: 200px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 360px; left: 1515px; width: 200px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 31.3%; left: 52.3%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 31.3%; left: 68.0%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 31.3%; left: 83.6%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div>
 
-    <div class="touch-box" style="top: 545px; left: 1025px; width: 200px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 545px; left: 1270px; width: 200px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 545px; left: 1515px; width: 200px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 48.1%; left: 52.3%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 48.1%; left: 68.0%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 48.1%; left: 83.6%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div>
 
-    <div class="touch-box" style="top: 730px; left: 1025px; width: 200px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 730px; left: 1270px; width: 200px; height: 160px;" onclick="addApple(this)"></div>
-    <div class="touch-box" style="top: 730px; left: 1515px; width: 200px; height: 160px;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 64.8%; left: 52.3%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 64.8%; left: 68.0%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div>
+    <div class="touch-box" style="top: 64.8%; left: 83.6%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div>
   </div>
 
   <script>
@@ -73,11 +73,14 @@
       img.className = 'apple';
       const boxWidth = el.clientWidth;
       const boxHeight = el.clientHeight;
-      img.style.top = `${Math.random() * (boxHeight - 70)}px`;
-      img.style.left = `${Math.random() * (boxWidth - 70)}px`;
+      const size = 70;
+      const padding = 5;
+      img.style.top = `${Math.random() * (boxHeight - size - padding)}px`;
+      img.style.left = `${Math.random() * (boxWidth - size - padding)}px`;
       el.appendChild(img);
     }
   </script>
 </body>
 </html>
+
 
