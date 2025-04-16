@@ -15,23 +15,17 @@
     }
     .background-wrapper {
       position: relative;
-      width: 100vw;
-      height: 100vh;
+      width: 1920px;
+      height: 1080px;
+      margin: 0 auto;
       overflow: hidden;
     }
     .background-wrapper img.background {
       position: absolute;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: fill;
       z-index: 0;
-    }
-    .touch-box {
-      position: absolute;
-      z-index: 1;
-      cursor: pointer;
-      display: block;
-      overflow: hidden;
     }
     .apple {
       width: 70px;
@@ -42,44 +36,22 @@
   </style>
 </head>
 <body>
-  <div class="background-wrapper">
+  <div class="background-wrapper" onclick="addAppleAnywhere(event)">
     <img class="background" src="moev_final_background.png" alt="설문 배경">
-
-    <!-- 좌측 6개 -->
-    <div class="touch-box" style="top: 31.3%; left: 7.5%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 향 -->
-    <div class="touch-box" style="top: 31.3%; left: 24%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 거품 오른쪽으로 -->
-    <div class="touch-box" style="top: 48.1%; left: 7.5%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 가격 -->
-    <div class="touch-box" style="top: 48.1%; left: 24%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 기능성 오른쪽으로 -->
-    <div class="touch-box" style="top: 64.8%; left: 7.5%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 성분 -->
-    <div class="touch-box" style="top: 81%; left: 24%; width: 13%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 브랜드 오른쪽으로 + 밑으로 -->
-
-    <!-- 우측 9개 -->
-    <div class="touch-box" style="top: 31.3%; left: 52.3%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 지성 두피 샴푸 -->
-    <div class="touch-box" style="top: 31.3%; left: 68.0%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 비듬 샴푸 -->
-    <div class="touch-box" style="top: 31.3%; left: 83.6%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 건성 두피 샴푸 -->
-
-    <div class="touch-box" style="top: 48.1%; left: 52.3%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 퍼퓸 샴푸 -->
-    <div class="touch-box" style="top: 48.1%; left: 68.0%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 드라이 샴푸 -->
-    <div class="touch-box" style="top: 64.5%; left: 90%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 모발 강화 오른쪽+아래 -->
-
-    <div class="touch-box" style="top: 67.5%; left: 52.3%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 헤어 퍼퓸 미스트 아래로 -->
-    <div class="touch-box" style="top: 67.5%; left: 68.0%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 두피 영양 앰플 아래로 -->
-    <div class="touch-box" style="top: 78%; left: 85%; width: 11.2%; height: 14.8%;" onclick="addApple(this)"></div> <!-- 헤어 팩 오른쪽+아래로 -->
   </div>
 
   <script>
-    function addApple(el) {
+    function addAppleAnywhere(event) {
+      const wrapper = document.querySelector('.background-wrapper');
+      const rect = wrapper.getBoundingClientRect();
       const img = document.createElement('img');
       img.src = 'apple.png';
       img.className = 'apple';
-      const boxWidth = el.clientWidth;
-      const boxHeight = el.clientHeight;
-      const size = 70;
-      const padding = 5;
-      img.style.top = `${Math.random() * (boxHeight - size - padding)}px`;
-      img.style.left = `${Math.random() * (boxWidth - size - padding)}px`;
-      el.appendChild(img);
+      img.style.left = `${event.clientX - rect.left - 35}px`;
+      img.style.top = `${event.clientY - rect.top - 35}px`;
+      wrapper.appendChild(img);
     }
   </script>
 </body>
 </html>
+
